@@ -23,4 +23,11 @@ Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/contact_hod', [ContactHodController::class, 'index']);
 
-Route::get('/faculty_profile',[FacultyProfileController::class, 'index']);  //new route added for faculty profile
+Route::get('/faculty_profile',[FacultyProfileController::class, 'index'])->name('faculty_profile.index');;  //new route added for faculty profile
+// making crud operations
+
+Route::get('/faculties/create', [FacultyProfileController::class, 'create'])->name('faculty.create');
+Route::post('/faculties', [FacultyProfileController::class, 'store'])->name('faculty.store');
+Route::get('/faculties/{id}/edit', [FacultyProfileController::class, 'edit'])->name('faculty.edit');
+Route::put('/faculties/{id}', [FacultyProfileController::class, 'update'])->name('faculty.update');
+Route::delete('/faculties/{id}', [FacultyProfileController::class, 'destroy'])->name('faculty.destroy');
