@@ -22,7 +22,7 @@
                     <th>Designation</th>
                     <th>Qualification</th>
                     <th>Experience</th>
-
+                    <th>Image</th>
                 </tr>
 
 
@@ -37,6 +37,14 @@
                         <td>{{ $faculty->designation }}</td>
                         <td>{{ $faculty->qualification }}</td>
                         <td>{{ $faculty->experience }}</td>
+                    <td>
+                        @if($faculty->image)
+                            <img src="data:image/jpeg;base64,{{ $faculty->image }}" alt="Faculty Image" width="50">
+                        @else
+                            <img src="{{ asset('images/default.png') }}" alt="Default Image" width="50">
+                        @endif
+                    </td>
+
 
                     </tr>
                 @endforeach
